@@ -1,14 +1,16 @@
 import board
 import digitalio
 import time
-print(dir(board))
-print('')
-led = digitalio.DigitalInOut(board.LED)
-print(dir(led))
-led.direction = digitalio.Direction.OUTPUT
 
-while True:
-    led.value = True
-    time.sleep(0.1)
-    led.value = False
-    time.sleep(0.1)
+led = neopixel.Neopixel(board.NEOPIXEL,10)
+led.brightness=0.1
+print(dir(led))
+while True: 
+    led[0] = (225,0,0)
+    time.sleep(.5)
+    led[6] = (225,0,0)
+    time.sleep(.5)
+    led[6] = (0,234,0)
+    time.sleep(.5)
+    led[0] = (0,0,213)
+    time.sleep(.5)
