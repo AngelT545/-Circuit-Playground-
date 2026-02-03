@@ -1,0 +1,22 @@
+import time
+import board
+import neopixel
+
+# Setup: 1 NeoPixel on pin D6
+pixel = neopixel.NeoPixel(board.D6, 1, brightness=1.0, auto_write=True)
+
+# Color (R, G, B)
+color = (0, 0, 255)  # Blue
+
+while True:
+    # Fade in
+    for b in range(0, 256, 5):
+        pixel.brightness = b / 255
+        pixel[0] = color
+        time.sleep(0.02)
+
+    # Fade out
+    for b in range(255, -1, -5):
+        pixel.brightness = b / 255
+        pixel[0] = color
+        time.sleep(0.02)
