@@ -1,0 +1,16 @@
+import time
+import board
+import neopixel
+
+# Create a NeoPixel object with 10 LEDs (Circuit Playground has 10)
+pixels = neopixel.NeoPixel(board.NEOPIXEL, 10)
+
+while True:
+    # Turn on two different LEDs with different colors
+    pixels[0] = (255, 0, 0)   # LED 0 = red
+    pixels[5] = (0, 0, 255)   # LED 5 = blue
+    time.sleep(0.5)
+
+    # Turn all LEDs off
+    pixels.fill((0, 0, 0))
+    time.sleep(0.5)
